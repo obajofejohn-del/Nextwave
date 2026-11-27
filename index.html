@@ -1,2 +1,407 @@
-# Nextwave
-A global music streaming platform for artists and music lovers.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nextwave | Music Without Limits</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #090910;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 7%;
+    background: #11111c;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: #a855f7;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #a855f7;
+}
+
+.hero {
+    padding: 90px 7%;
+    background: linear-gradient(120deg, #21103e, #090910);
+}
+
+.hero h1 {
+    font-size: 48px;
+    max-width: 650px;
+    margin-bottom: 20px;
+}
+
+.hero span {
+    color: #b56aff;
+}
+
+.hero p {
+    color: #bbb;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+button {
+    background: #9333ea;
+    color: white;
+    border: none;
+    padding: 13px 23px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #7e22ce;
+}
+
+section {
+    padding: 45px 7%;
+}
+
+h2 {
+    margin-bottom: 25px;
+}
+
+.search {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #181824;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.song {
+    background: #171723;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.cover {
+    height: 145px;
+    background: linear-gradient(135deg, #9333ea, #251044);
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.song h3 {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.song p {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.upload-box {
+    background: #171723;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+input[type="file"] {
+    margin: 20px 0;
+    max-width: 100%;
+}
+
+.player {
+    background: #171723;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+audio {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.auth {
+    max-width: 450px;
+    margin: auto;
+    background: #171723;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.auth input {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin: 15px 0;
+    background: #090910;
+    border: 1px solid #333;
+    border-radius: 7px;
+    color: white;
+}
+
+footer {
+    background: #11111c;
+    padding: 35px;
+    text-align: center;
+    color: #aaa;
+}
+
+footer span {
+    color: #a855f7;
+}
+
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    nav a {
+        margin-left: 8px;
+        font-size: 12px;
+    }
+
+    header {
+        padding: 18px 4%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">NEXTWAVE.</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#music">Music</a>
+        <a href="#upload">Upload</a>
+        <a href="#account">Account</a>
+    </nav>
+</header>
+
+<div class="hero" id="home">
+    <h1>Your Music.<br><span>Your World. Your Wave.</span></h1>
+
+    <p>
+        Discover new sounds, stream your favourite music
+        and share your talent with the world.
+        Welcome to the future of music.
+    </p>
+
+    <button onclick="document.getElementById('music').scrollIntoView()">
+        Explore Music
+    </button>
+</div>
+
+<section id="music">
+
+    <h2>Discover Music 🎵</h2>
+
+    <input
+        class="search"
+        type="text"
+        id="search"
+        placeholder="Search songs or artists..."
+        oninput="searchMusic()"
+    >
+
+    <div class="music-grid" id="musicGrid">
+
+        <div class="song">
+            <div class="cover">🎧</div>
+            <h3>First Wave</h3>
+            <p>Nextwave Artist</p>
+            <button onclick="alert('Upload a song to start playing music!')">
+                Play
+            </button>
+        </div>
+
+        <div class="song">
+            <div class="cover">🎤</div>
+            <h3>New Generation</h3>
+            <p>Nextwave Artist</p>
+            <button onclick="alert('Upload a song to start playing music!')">
+                Play
+            </button>
+        </div>
+
+        <div class="song">
+            <div class="cover">🔥</div>
+            <h3>Street Vibes</h3>
+            <p>Nextwave Artist</p>
+            <button onclick="alert('Upload a song to start playing music!')">
+                Play
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="upload">
+
+    <h2>Upload Your Music 🚀</h2>
+
+    <div class="upload-box">
+
+        <h3>Share your sound with the world</h3>
+
+        <p style="color:#aaa;margin-top:10px;">
+            Select an audio file from your device.
+        </p>
+
+        <input type="file" id="audioFile" accept="audio/*">
+
+        <br>
+
+        <button onclick="uploadMusic()">Upload Music</button>
+
+        <p id="uploadMessage" style="margin-top:15px;"></p>
+
+    </div>
+
+</section>
+
+<section>
+
+    <h2>Music Player 🎶</h2>
+
+    <div class="player">
+
+        <h3 id="nowPlaying">Nothing playing yet</h3>
+
+        <audio id="audioPlayer" controls></audio>
+
+    </div>
+
+</section>
+
+<section id="account">
+
+    <h2>Join Nextwave</h2>
+
+    <div class="auth">
+
+        <h3>Create Your Account</h3>
+
+        <input type="text" placeholder="Your full name">
+
+        <input type="email" placeholder="Email address">
+
+        <input type="password" placeholder="Create password">
+
+        <button onclick="alert('Account registration will be activated when the platform backend is connected.')">
+            Sign Up
+        </button>
+
+        <p style="color:#aaa;margin-top:20px;">
+            Artists and music lovers are welcome.
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h2><span>NEXTWAVE.</span></h2>
+
+    <p>Music Without Limits.</p>
+
+    <p style="margin-top:15px;">
+        © 2026 Nextwave. All rights reserved.
+    </p>
+
+</footer>
+
+<script>
+
+function uploadMusic() {
+
+    const file = document.getElementById("audioFile").files[0];
+
+    if (!file) {
+        alert("Please select a music file first.");
+        return;
+    }
+
+    if (!file.type.startsWith("audio/")) {
+        alert("Please select a valid audio file.");
+        return;
+    }
+
+    const player = document.getElementById("audioPlayer");
+
+    player.src = URL.createObjectURL(file);
+
+    document.getElementById("nowPlaying").innerText = file.name;
+
+    document.getElementById("uploadMessage").innerText =
+        "Music loaded successfully! Press play below.";
+
+    player.play();
+
+}
+
+function searchMusic() {
+
+    const search = document.getElementById("search")
+        .value.toLowerCase();
+
+    const songs = document.querySelectorAll(".song");
+
+    songs.forEach(song => {
+
+        const text = song.innerText.toLowerCase();
+
+        song.style.display = text.includes(search)
+            ? "block"
+            : "none";
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
+
